@@ -6,15 +6,27 @@
         <title>Testing testing 1, 2, 3!</title>
     </head>
     <body class="index">
-    <div id="registration_form" class="left">
-        <form action="" method="get">
-            Email address:
+
+    <p>Welcome to WeatherApp - your #32 app for weather!</p>
+
+    {% if not request.user.isAuthenticated %}
+        <p>YOYOYOUAOSUDA</p>
+    {% else %}
+        <p>Yo {{request.user.email}}</p>
+    {% endif %}
+    
+
+    <div id="registration_form" >
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        <form action="{% url 'weather:register' %}" method="post">
+            {% csrf_token %}
+            <label for="email">Email:</label>
             <input type="text" name="email" value="">
             <br>
-            Password:
-            <input type="text" name="password" value="">
+            <label for="password">Password:</label>
+            <input type="password" name="password" value="">
             <br>
-            Repeat Password:
+            <label for="repeat password">Repeat Password:</label>
             <input type="text" name="repeat_password" value="">
         	<br>
         	<input type="submit" value="Register">

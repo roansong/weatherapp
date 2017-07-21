@@ -1,29 +1,35 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Weather
-
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 # Create your views here.
-class HomePageView(TemplateView):
-    # def get(self, request, **kwargs):
-    #     return render(request, 'index.html', context=None)
-    template_name = 'index.html'
 
-class RegistrationView(TemplateView):
-    # def get(self, request, **kwargs):
-    #     return render(request, 'index.html', context=None)
-    template_name = 'registration.html'
+def index(request):
 
-class LoginView(TemplateView):
-    # def get(self, request, **kwargs):
-    #     return render(request, 'index.html', context=None)
-    template_name = 'login.html'
+	if(request.user.is_authenticated):
+		context={'user' : request.user}
+		return render(request, 'welcome/forecasts.html', context)
 
-class LoggedInView(TemplateView):
-	template_name = 'forecasts.html'
+	return render(request, 'welcome/index.html', context=None)
+
+def register(request):
+
+	
+	user = User.objects.create_user(username=request.POST['email'],email=request.POST['email'],password=request.POST['password'])
+
+	return render(request, 'welcome/login.html', context=None)
 
 
+def login(request):
 
+	user = authenticate(username=request.POST['email'], password=request.POST['password'])
+	if user is not None:
+	    return render(request, 'welcome/forecasts.html', context=None)
+	else:
+	    return render(request, 'welcome/index.html', context=None)
 
+	
 
 def WeatherData(request):
 	page = 1

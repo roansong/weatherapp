@@ -1,4 +1,9 @@
 <p>There should be some data below<p>
+{% if not request.user.isAuthenticated %}
+        <p>YOYOYOUAOSUDA</p>
+{% else %}
+    <p>Yo {{request.user.email}}</p>
+{% endif %}
 {% if weather_data %}
     <table>
     <tr>
