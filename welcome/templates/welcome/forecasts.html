@@ -1,8 +1,8 @@
 <p>There should be some data below<p>
-{% if not request.user.isAuthenticated %}
-        <p>YOYOYOUAOSUDA</p>
+{% if request.user.is_authenticated %}
+        <p>Yo {{request.user.email}}</p>
 {% else %}
-    <p>Yo {{request.user.email}}</p>
+    <p>asdfasdf</p>
 {% endif %}
 {% if weather_data %}
     <table>
@@ -27,3 +27,5 @@
 {% else %}
     <p>No weather stats are available.</p>
 {% endif %}
+
+<a href="{% url 'weather:logout' %}">Log out</a>

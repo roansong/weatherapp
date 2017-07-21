@@ -1,0 +1,68 @@
+http://weather.news24.com/ajaxpro/TwentyFour.Weather.Web.Ajax,App_Code.ashx
+
+if(typeof TwentyFour == "undefined") TwentyFour={};
+if(typeof TwentyFour.Weather == "undefined") TwentyFour.Weather={};
+if(typeof TwentyFour.Weather.Web == "undefined") TwentyFour.Weather.Web={};
+if(typeof TwentyFour.Weather.Web.Ajax == "undefined") TwentyFour.Weather.Web.Ajax={};
+TwentyFour.Weather.Web.Ajax_class = function() {};
+Object.extend(TwentyFour.Weather.Web.Ajax_class.prototype, Object.extend(new AjaxPro.AjaxClass(), {
+	GetForecast7Day: function(cityId) {
+		return this.invoke("GetForecast7Day", {"cityId":cityId}, this.GetForecast7Day.getArguments().slice(1));
+	},
+	GetForeCast48Hour: function(cityId) {
+		return this.invoke("GetForeCast48Hour", {"cityId":cityId}, this.GetForeCast48Hour.getArguments().slice(1));
+	},
+	GetForecast7DayExpanded: function(cityId) {
+		return this.invoke("GetForecast7DayExpanded", {"cityId":cityId}, this.GetForecast7DayExpanded.getArguments().slice(1));
+	},
+	GetForecast15DayExpanded: function(cityId) {
+		return this.invoke("GetForecast15DayExpanded", {"cityId":cityId}, this.GetForecast15DayExpanded.getArguments().slice(1));
+	},
+	GetWeatherAdvisories: function(cityId) {
+		return this.invoke("GetWeatherAdvisories", {"cityId":cityId}, this.GetWeatherAdvisories.getArguments().slice(1));
+	},
+	GetCurrentOne: function(cityId) {
+		return this.invoke("GetCurrentOne", {"cityId":cityId}, this.GetCurrentOne.getArguments().slice(1));
+	},
+	GetAstronomyForecast: function(cityId) {
+		return this.invoke("GetAstronomyForecast", {"cityId":cityId}, this.GetAstronomyForecast.getArguments().slice(1));
+	},
+	GetMarineExtendedForecast: function(cityId) {
+		return this.invoke("GetMarineExtendedForecast", {"cityId":cityId}, this.GetMarineExtendedForecast.getArguments().slice(1));
+	},
+	GetTideForecast: function(cityId) {
+		return this.invoke("GetTideForecast", {"cityId":cityId}, this.GetTideForecast.getArguments().slice(1));
+	},
+	Get30DayTideForecast: function(cityId) {
+		return this.invoke("Get30DayTideForecast", {"cityId":cityId}, this.Get30DayTideForecast.getArguments().slice(1));
+	},
+	GetAirportDelayReport: function(cityId) {
+		return this.invoke("GetAirportDelayReport", {"cityId":cityId}, this.GetAirportDelayReport.getArguments().slice(1));
+	},
+	GetHistoricalClimateReport: function(cityId, monthIndex) {
+		return this.invoke("GetHistoricalClimateReport", {"cityId":cityId, "monthIndex":monthIndex}, this.GetHistoricalClimateReport.getArguments().slice(2));
+	},
+	GetDetailedFireReport: function(cityId) {
+		return this.invoke("GetDetailedFireReport", {"cityId":cityId}, this.GetDetailedFireReport.getArguments().slice(1));
+	},
+	GetExtendedFireReport: function(cityId) {
+		return this.invoke("GetExtendedFireReport", {"cityId":cityId}, this.GetExtendedFireReport.getArguments().slice(1));
+	},
+	GetFireReport: function(cityId) {
+		return this.invoke("GetFireReport", {"cityId":cityId}, this.GetFireReport.getArguments().slice(1));
+	},
+	GetSevereWarningsReport: function(cityId) {
+		return this.invoke("GetSevereWarningsReport", {"cityId":cityId}, this.GetSevereWarningsReport.getArguments().slice(1));
+	},
+	GetAirports: function(country) {
+		return this.invoke("GetAirports", {"country":country}, this.GetAirports.getArguments().slice(1));
+	},
+	GetMaps: function() {
+		return this.invoke("GetMaps", {}, this.GetMaps.getArguments().slice(0));
+	},
+	GetCities: function(location, selectedRegion) {
+		return this.invoke("GetCities", {"location":location, "selectedRegion":selectedRegion}, this.GetCities.getArguments().slice(2));
+	},
+	url: '/ajaxpro/TwentyFour.Weather.Web.Ajax,App_Code.ashx'
+}));
+TwentyFour.Weather.Web.Ajax = new TwentyFour.Weather.Web.Ajax_class();

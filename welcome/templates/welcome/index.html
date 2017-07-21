@@ -4,19 +4,72 @@
         <meta charset="utf-8">
         <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
         <title>Testing testing 1, 2, 3!</title>
+    
+        <script>
+        function toggleVisible(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === 'block') {
+                x.style.display = 'none';
+            } else {
+                x.style.display = 'block';
+            }
+        }
+        </script>
+
+        <style>
+        .hidden_form{
+            display:none;
+        }
+
+        #registration_form{
+            height: 0px;
+            overflow: hidden;
+            transition: height 0.5s;}
+        #login_form{
+        height: 0px;
+        overflow: hidden;
+        transition: height 0.5s;}
+        section {padding: 0 20px;}
+        #reg_toggle:checked ~ #registration_form {
+          height: 200px;
+        }
+        #log_toggle:checked ~ #login_form {
+          height: 200px;
+        }
+
+        #left{
+            float: left;
+            width: 300px;
+            overflow: hidden;
+        }
+        #right{
+            overflow: hidden;
+        }
+        </style>
+
     </head>
     <body class="index">
 
     <p>Welcome to WeatherApp - your #32 app for weather!</p>
 
-    {% if not request.user.isAuthenticated %}
-        <p>YOYOYOUAOSUDA</p>
+
+    {% if registered %}
+        <p>Registration successful! You may now log in, or register another account<p>
+
+    {% elif not request.user.is_authenticated %}
+        <p>User is currently not authenticated</p>
+    
     {% else %}
         <p>Yo {{request.user.email}}</p>
+    }
     {% endif %}
     
-
-    <div id="registration_form" >
+    <!-- <button onclick="toggleVisible('registration_form')">Register</button> -->
+    <section id="left">
+    <input id="reg_toggle" type="checkbox" hidden checked>
+    <label for="reg_toggle">Register</label>
+    <div id="registration_form">
+    
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
         <form action="{% url 'weather:register' %}" method="post">
             {% csrf_token %}
@@ -31,5 +84,28 @@
         	<br>
         	<input type="submit" value="Register">
     	</form>
+    
     </div>
+    </section>
+    
+
+    <section id="right">
+    <input id="log_toggle" type="checkbox" hidden checked>
+    <label for="log_toggle">Login</label>
+    <div id="login_form">
+    
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        <form action="{% url 'weather:login' %}" method="post">
+            {% csrf_token %}
+            <label for="email">Email:</label>
+            <input type="text" name="email" value="">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" value="">
+            <br>
+            <input type="submit" value="Login">
+        </form>
+    
+    </div>
+    </section>
 </html>

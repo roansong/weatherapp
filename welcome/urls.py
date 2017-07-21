@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^forecasts/$', views.WeatherData, name='weather'),
     url(r'^register/$', views.register, name='register'),
+    url(r'^logout/$', views.logout_req, name='logout'),
+     url(r'^login/$', views.login_req, name='login'),
 ]

@@ -2,13 +2,13 @@ from django.db import models
 
 # Create your models here.
 
-class User(models.Model):
-	email = models.EmailField('Registration email address', max_length=254)
-	password = models.CharField('Registration password', max_length=256)
-	# password_repeat = models.CharField('Registration password repeat', max_length=256)
+# class User(models.Model):
+# 	email = models.EmailField('Registration email address', max_length=254)
+# 	password = models.CharField('Registration password', max_length=256)
+# 	# password_repeat = models.CharField('Registration password repeat', max_length=256)
 
-	def __str__(self):
-			return self.email
+# 	def __str__(self):
+# 			return self.email
 
 # class LoginForm(models.Model):
 # 	email = models.EmailField('Login email address', max_length=254)

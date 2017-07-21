@@ -1,0 +1,86 @@
+{"__type":"TwentyFour.Services.Weather.Objects.Location, TwentyFour.Services.Wea
+ther, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null","City":"77107","Cit
+yName":"Cape Town","Forecasts":[{"__type":"TwentyFour.Services.Weather.Objects.F
+orecast, TwentyFour.Services.Weather, Version=1.2.0.0, Culture=neutral, PublicKe
+yToken=null","DaySequence":1,"Segment":null,"DaySegment":null,"DayOfWeek":6,"Wee
+kDay":"Friday","ShortWeekDay":"Fri","Date":new Date(Date.UTC(2017,6,20,22,0,0,0)
+),"FormattedDate":"Fri, Jul 21","DayLight":"D","SkyDescriptor":"32","Sky":"Morni
+ng clouds","PrecipitationDescriptor":"","Precipitation":"","TemperatureDescripto
+r":"6","TemperatureDescription":"Cool","HighTemp":"17","LowTemp":"11","UV":"Low"
+,"AirDescription":"20","Air":"Beautiful","Description":"Morning clouds. Cool.","
+Temperature":null,"WindSpeed":"10","Beaufort":null,"BeaufortDescriptor":null,"Wi
+ndDirection":null,"WindDirectionAbreviated":null,"WindDirectionDescription":null
+,"DewPoint":null,"Humidity":null,"Comfort":null,"Visibility":null,"Rainfall":nul
+l,"Snowfall":null,"PrecipitationProbability":null,"Icon":"4","IconName":"partly_
+cloudy","Cached":false},{"__type":"TwentyFour.Services.Weather.Objects.Forecast,
+ TwentyFour.Services.Weather, Version=1.2.0.0, Culture=neutral, PublicKeyToken=n
+ull","DaySequence":2,"Segment":null,"DaySegment":null,"DayOfWeek":7,"WeekDay":"S
+aturday","ShortWeekDay":"Sat","Date":new Date(Date.UTC(2017,6,21,22,0,0,0)),"For
+mattedDate":"Sat, Jul 22","DayLight":"D","SkyDescriptor":"3","Sky":"Mostly sunny
+","PrecipitationDescriptor":"","Precipitation":"","TemperatureDescriptor":"6","T
+emperatureDescription":"Cool","HighTemp":"17","LowTemp":"11","UV":"Low","AirDesc
+ription":"20","Air":"Beautiful","Description":"Mostly sunny. Cool.","Temperature
+":null,"WindSpeed":"19","Beaufort":null,"BeaufortDescriptor":null,"WindDirection
+":null,"WindDirectionAbreviated":null,"WindDirectionDescription":null,"DewPoint"
+:null,"Humidity":null,"Comfort":null,"Visibility":null,"Rainfall":null,"Snowfall
+":null,"PrecipitationProbability":null,"Icon":"2","IconName":"mostly_sunny","Cac
+hed":false},{"__type":"TwentyFour.Services.Weather.Objects.Forecast, TwentyFour.
+Services.Weather, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null","DaySeq
+uence":3,"Segment":null,"DaySegment":null,"DayOfWeek":1,"WeekDay":"Sunday","Shor
+tWeekDay":"Sun","Date":new Date(Date.UTC(2017,6,22,22,0,0,0)),"FormattedDate":"S
+un, Jul 23","DayLight":"D","SkyDescriptor":"1","Sky":"Sunny","PrecipitationDescr
+iptor":"","Precipitation":"","TemperatureDescriptor":"6","TemperatureDescription
+":"Cool","HighTemp":"17","LowTemp":"11","UV":"Low","AirDescription":"20","Air":"
+Beautiful","Description":"Sunny. Cool.","Temperature":null,"WindSpeed":"9","Beau
+fort":null,"BeaufortDescriptor":null,"WindDirection":null,"WindDirectionAbreviat
+ed":null,"WindDirectionDescription":null,"DewPoint":null,"Humidity":null,"Comfor
+t":null,"Visibility":null,"Rainfall":null,"Snowfall":null,"PrecipitationProbabil
+ity":null,"Icon":"1","IconName":"sunny","Cached":false},{"__type":"TwentyFour.Se
+rvices.Weather.Objects.Forecast, TwentyFour.Services.Weather, Version=1.2.0.0, C
+ulture=neutral, PublicKeyToken=null","DaySequence":4,"Segment":null,"DaySegment"
+:null,"DayOfWeek":2,"WeekDay":"Monday","ShortWeekDay":"Mon","Date":new Date(Date
+.UTC(2017,6,23,22,0,0,0)),"FormattedDate":"Mon, Jul 24","DayLight":"D","SkyDescr
+iptor":"32","Sky":"Morning clouds","PrecipitationDescriptor":"","Precipitation":
+"","TemperatureDescriptor":"8","TemperatureDescription":"Mild","HighTemp":"17","
+LowTemp":"11","UV":"Low","AirDescription":"20","Air":"Beautiful","Description":"
+Morning clouds. Mild.","Temperature":null,"WindSpeed":"10","Beaufort":null,"Beau
+fortDescriptor":null,"WindDirection":null,"WindDirectionAbreviated":null,"WindDi
+rectionDescription":null,"DewPoint":null,"Humidity":null,"Comfort":null,"Visibil
+ity":null,"Rainfall":null,"Snowfall":null,"PrecipitationProbability":null,"Icon"
+:"4","IconName":"partly_cloudy","Cached":false},{"__type":"TwentyFour.Services.W
+eather.Objects.Forecast, TwentyFour.Services.Weather, Version=1.2.0.0, Culture=n
+eutral, PublicKeyToken=null","DaySequence":5,"Segment":null,"DaySegment":null,"D
+ayOfWeek":3,"WeekDay":"Tuesday","ShortWeekDay":"Tue","Date":new Date(Date.UTC(20
+17,6,24,22,0,0,0)),"FormattedDate":"Tue, Jul 25","DayLight":"D","SkyDescriptor":
+"32","Sky":"Morning clouds","PrecipitationDescriptor":"64","Precipitation":"Show
+ers late","TemperatureDescriptor":"6","TemperatureDescription":"Cool","HighTemp"
+:"15","LowTemp":"9","UV":"Minimal","AirDescription":"13","Air":"Breezy","Descrip
+tion":"Showers late. Morning clouds. Cool.","Temperature":null,"WindSpeed":"29",
+"Beaufort":null,"BeaufortDescriptor":null,"WindDirection":null,"WindDirectionAbr
+eviated":null,"WindDirectionDescription":null,"DewPoint":null,"Humidity":null,"C
+omfort":null,"Visibility":null,"Rainfall":null,"Snowfall":null,"PrecipitationPro
+bability":null,"Icon":"33","IconName":"showers","Cached":false},{"__type":"Twent
+yFour.Services.Weather.Objects.Forecast, TwentyFour.Services.Weather, Version=1.
+2.0.0, Culture=neutral, PublicKeyToken=null","DaySequence":6,"Segment":null,"Day
+Segment":null,"DayOfWeek":4,"WeekDay":"Wednesday","ShortWeekDay":"Wed","Date":ne
+w Date(Date.UTC(2017,6,25,22,0,0,0)),"FormattedDate":"Wed, Jul 26","DayLight":"D
+","SkyDescriptor":"3","Sky":"Mostly sunny","PrecipitationDescriptor":"","Precipi
+tation":"","TemperatureDescriptor":"6","TemperatureDescription":"Cool","HighTemp
+":"14","LowTemp":"8","UV":"Low","AirDescription":"*","Air":"","Description":"Mos
+tly sunny. Cool.","Temperature":null,"WindSpeed":"15","Beaufort":null,"BeaufortD
+escriptor":null,"WindDirection":null,"WindDirectionAbreviated":null,"WindDirecti
+onDescription":null,"DewPoint":null,"Humidity":null,"Comfort":null,"Visibility":
+null,"Rainfall":null,"Snowfall":null,"PrecipitationProbability":null,"Icon":"2",
+"IconName":"mostly_sunny","Cached":false},{"__type":"TwentyFour.Services.Weather
+.Objects.Forecast, TwentyFour.Services.Weather, Version=1.2.0.0, Culture=neutral
+, PublicKeyToken=null","DaySequence":7,"Segment":null,"DaySegment":null,"DayOfWe
+ek":5,"WeekDay":"Thursday","ShortWeekDay":"Thu","Date":new Date(Date.UTC(2017,6,
+26,22,0,0,0)),"FormattedDate":"Thu, Jul 27","DayLight":"D","SkyDescriptor":"1","
+Sky":"Sunny","PrecipitationDescriptor":"","Precipitation":"","TemperatureDescrip
+tor":"8","TemperatureDescription":"Mild","HighTemp":"17","LowTemp":"8","UV":"Low
+","AirDescription":"30","Air":"Crisp","Description":"Sunny. Mild.","Temperature"
+:null,"WindSpeed":"4","Beaufort":null,"BeaufortDescriptor":null,"WindDirection":
+null,"WindDirectionAbreviated":null,"WindDirectionDescription":null,"DewPoint":n
+ull,"Humidity":null,"Comfort":null,"Visibility":null,"Rainfall":null,"Snowfall":
+null,"PrecipitationProbability":null,"Icon":"1","IconName":"sunny","Cached":fals
+e}],"Cached":false};
