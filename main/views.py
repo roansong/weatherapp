@@ -3,6 +3,8 @@ from django.views.generic import TemplateView
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from main.forms import RegistrationForm
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 def index(request):
@@ -11,6 +13,7 @@ def index(request):
 
 class IndexView(TemplateView):
 	template_name = "main/index.html"
+
 
 class ResultsView(TemplateView):	
 	template_name = "main/results.html"

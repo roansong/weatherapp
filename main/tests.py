@@ -1,20 +1,7 @@
 from django.test import TestCase
-from django.utils import timezone
 from django.urls import reverse
 
 # Create your tests here.
-from .models import Forecast
-
-class ForecastModelTests(TestCase):
-
-	def test_string_method(self):
-		"""
-		make sure that the correct date format is printed
-		"""
-		t = timezone.now()
-		f = Forecast(date=t)
-		self.assertEqual(f.__str__(),t.strftime("%Y-%m-%d"))
-
 class IndexViewTests(TestCase):
 
 	def test_not_logged_in(self):
