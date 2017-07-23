@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'welcome.apps.WelcomeConfig',
+    'main.apps.MainConfig',
+    'rest_framework',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -123,4 +125,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_URL = '/welcome/login'
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/weather/'
+LOGOUT_REDIRECT_URL = '/'
