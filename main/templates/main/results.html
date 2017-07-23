@@ -1,1 +1,47 @@
-<p>Results coming soon</p>
+{% extends 'main/base.html' %}
+{% block title %}Weather24 Forecast Data{% endblock %}
+
+{% block content_header %}Weather24 Forecast Data{% endblock %}
+
+{% block content %}
+{% if forecasts %}
+    <table>
+    <tr>
+	    <th>Date</th>
+	    <th>Min Temp [&deg;C]</th>
+	    <th>Max Temp [&deg;C]</th>
+	    <th>Wind [km/h]</th>
+	    <th>Rain [%]</th>
+    </tr>
+	    {% for f in forecasts %}
+	        <tr>
+		        <td>{{ f.date }}</td>
+		        <td>{{ f.min_temp }}</td>
+		        <td>{{ f.max_temp }}</td>
+		        <td>{{ f.wind }}</td>
+		        <td>{{ f.rain }}</td>
+	        </tr>
+	    {% endfor %}
+	    
+    </table>
+    
+    {% if prevPage >= 0 %}
+	    {% if prevPage == 0 %}
+	    	<a href= "{% url 'main:results' %}">Previous</a>
+	    {%else %}
+	    	<a href= "{% url 'main:pages' prevPage %}">Previous</a>
+	    {%endif %}
+    {% endif %}
+
+
+    {% if nextPage is not -1 %}
+
+    <a href= "{% url 'main:pages' nextPage %}">Next</a>
+
+    {% endif %}
+{% else %}
+    <p>No weather stats are available.</p>
+{% endif %}
+{% endblock %}
+
+{# {% debug %} #}

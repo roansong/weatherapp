@@ -2,16 +2,16 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Django Simple Login{% endblock %}</title>
+  <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
   <header>
-    <h1>Django Simple Login</h1>
+<h1>{% block content_header %}{% endblock %}</h1>
     {% if user.is_authenticated %}
       Hi {{ user.username }}!
       <a href="{% url 'logout' %}">logout</a>
     {% else %}
-      <a href="{% url 'login' %}">login</a>
+      Please <a href="{% url 'register' %}">register an account</a> or <a href="{% url 'login' %}">log in.</a>
     {% endif %}
   </header>
   <hr>
@@ -21,7 +21,7 @@
   </main>
   <hr>
   <footer>
-    <a href="http://simpleisbetterthancomplex.com">simpleisbetterthancomplex.com</a>
+    <a href="mailto:roansong@gmail.com">roansong@gmail.com</a>
   </footer>
 </body>
 </html>

@@ -6,5 +6,6 @@ app_name = 'main'
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^weather/$', views.ResultsView.as_view(), name='results'),
+    url(r'^weather/$', views.results, name='results'),
+    url(r'^weather/(?P<page>[0-9]+)/$', views.results, name='pages'),
 ]

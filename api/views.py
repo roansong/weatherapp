@@ -1,9 +1,9 @@
 from django.shortcuts import render
-
-# Create your views here.
 from rest_framework import generics
 from .serializers import ForecastSerializer
 from .models import Forecast
+import requests
+import json
 
 class CreateView(generics.ListCreateAPIView):
     """This class defines the create behavior of our rest api."""
@@ -18,3 +18,4 @@ class DetailsView(generics.RetrieveUpdateDestroyAPIView):
 	"""Class to handle GET, PUT and DELETE requests"""
 	queryset = Forecast.objects.all()
 	serializer_class = ForecastSerializer
+

@@ -4,19 +4,38 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from main.forms import RegistrationForm
 from django.contrib.auth.decorators import login_required
+from api.models import Forecast
+from api.utils import load_forecasts
 
 # Create your views here.
 
 def index(request):
-
-	return render(request, 'main/index.html', context=None)
+    return render(request, 'main/index.html', context=None)
 
 class IndexView(TemplateView):
 	template_name = "main/index.html"
 
 
-class ResultsView(TemplateView):	
-	template_name = "main/results.html"
+def results(request, page=0):	
+    if not (Forecast.objects.count() > 0):
+        print('loading')
+        load_forecasts()
+    page_length = int(request.GET['per_page']) if 'per_page' in request.GET else 3
+
+
+    page = int(page)
+    
+    ind = page*page_length
+    query = Forecast.objects.all().order_by('-date')
+
+    context = {
+        'forecasts': query[ind:ind+page_length],
+        'nextPage':page+1 if ind + page_length <= len(query) else -1,
+        'prevPage':page-1,
+        'page':page,
+        }
+
+    return render(request, 'main/results.html', context)
 
 def register(request):
     if request.method == 'POST':
