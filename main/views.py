@@ -9,13 +9,10 @@ from api.utils import load_forecasts
 
 # Create your views here.
 
-def index(request):
-    return render(request, 'main/index.html', context=None)
-
 class IndexView(TemplateView):
 	template_name = "main/index.html"
 
-
+@login_required
 def results(request, page=0):	
     if not (Forecast.objects.count() > 0):
         print('loading')
