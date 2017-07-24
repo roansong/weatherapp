@@ -2,7 +2,7 @@
 {% block title %}Log in{% endblock %}
 {% block content_header %} Log in {% endblock %}
 
-{% block greeting %}Kindly fill in your details below.{% endblock %}
+{% block greeting %}Kindly fill in your details below. <a href="{% url 'register' %}">Forgot to register?</a>{% endblock %}
 {% block content %}
   
 <form method="post">
