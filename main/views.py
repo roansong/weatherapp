@@ -4,8 +4,15 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from main.forms import RegistrationForm
 from django.contrib.auth.decorators import login_required
-from api.models import Forecast
-from api.utils import load_forecasts
+from .models import Forecast
+from .utils import load_forecasts
+
+from rest_framework import generics, permissions
+from .serializers import ForecastSerializer
+
+import requests
+import json
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -51,3 +58,22 @@ def register(request):
     else:
         form = RegistrationForm()
     return render(request, 'main/register.html', {'form': form})
+
+class CreateView(LoginRequiredMixin, generics.ListCreateAPIView):
+    """This class defines the create behavior of our rest api."""
+    queryset = Forecast.objects.all()
+    serializer_class = ForecastSerializer
+    login_url = '/login/'
+    permission_classes = (permissions.IsAuthenticated,)
+    
+    def perform_create(self, serializer):
+        """Save the post data when creating a new forecast."""
+        serializer.save()
+
+
+class DetailsView(LoginRequiredMixin, generics.RetrieveUpdateDestroyAPIView):
+    """Class to handle GET, PUT and DELETE requests"""
+    queryset = Forecast.objects.all()
+    serializer_class = ForecastSerializer
+    login_url = '/login/'
+    permission_classes = (permissions.IsAuthenticated,)
