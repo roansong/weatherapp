@@ -48,7 +48,7 @@ byte_orbit/
 Quick start
 -----------
 
-1. Make sure you have the following packages installed:
+1. Make sure you have the following packages installed (I recommend running a virtualenv):
 
 	certifi==2017.4.17
 
