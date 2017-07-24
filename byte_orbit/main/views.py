@@ -21,6 +21,8 @@ class IndexView(TemplateView):
 
 @login_required
 def results(request, page=0):	
+    """Weather display page"""
+
     if not (Forecast.objects.count() > 0):
         print('loading')
         load_forecasts()
@@ -42,6 +44,7 @@ def results(request, page=0):
     return render(request, 'main/results.html', context)
 
 def register(request):
+    """Register and create a user if a valid form is submitted"""
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -49,12 +52,7 @@ def register(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            if(user is not None):
-	            login(request, user)
-
-	            return redirect('main:results')
-            else:
-            	return redirect('main:index')
+            return redirect('login')
     else:
         form = RegistrationForm()
     return render(request, 'main/register.html', {'form': form})

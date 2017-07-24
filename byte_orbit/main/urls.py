@@ -4,6 +4,8 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 app_name = 'main'
 
+# defining the urls used in the site
+
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^weather/$', views.results, name='results'),

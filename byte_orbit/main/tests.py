@@ -117,15 +117,6 @@ class JSONTests(TestCase):
 
 		self.assertEqual(clean_json(text),'{"Date":"2017-07-24"}')
 
-		# in: "Date":new Date(Date.UTC(2017,6,22,22,0,0,0))
-		# out: "Date":"2017-07-23"
-
-    
-
-
-
-
-
 
 # Create your tests here.
 class IndexViewTests(TestCase):
