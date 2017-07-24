@@ -16,9 +16,9 @@ Quick start
 
 2. Navigate to the byte_orbit folder, which 'contains manage.py'. 
 
-    cd byte_orbit
+	cd byte_orbit
 
-3.Ensure that all databases are clean and healthy by running the following commands
+3. Ensure that all databases are clean and healthy by running the following commands
 
 	python manage.py flush
 
