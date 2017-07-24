@@ -1,4 +1,5 @@
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'main/styles.css' %}">
 <!-- <img src="{% static "my_app/example.jpg" %}" alt="My image"/> -->
 <!DOCTYPE html>
 <html>
@@ -7,22 +8,25 @@
   <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-  <header>
-<h1>{% block content_header %}{% endblock %}</h1>
+  <header class="header">
+<h1><a id="home" href="{% url 'main:index' %}" style=""> {% block content_header %}{% endblock %}</a></h1>
+    
+  {% block greeting %}
     {% if user.is_authenticated %}
       Hi {{ user.username }}!
-      <a href="{% url 'logout' %}">logout</a>
+      <a href="{% url 'logout' %}">log out</a>
     {% else %}
       Please <a href="{% url 'register' %}">register an account</a> or <a href="{% url 'login' %}">log in.</a>
     {% endif %}
+  {% endblock %}
   </header>
-  <hr>
+
   <main>
     {% block content %}
     {% endblock %}
   </main>
-  <hr>
-  <footer>
+
+  <footer class="footer">
     <a href="mailto:roansong@gmail.com" target="_blank">roansong@gmail.com</a>
   </footer>
 </body>

@@ -5,40 +5,56 @@
 
 {% block content %}
 {% if forecasts %}
-    <table>
-    <tr>
-	    <th>Date</th>
-	    <th>Min Temp [&deg;C]</th>
-	    <th>Max Temp [&deg;C]</th>
-	    <th>Wind [km/h]</th>
-	    <th>Rain [%]</th>
-    </tr>
-	    {% for f in forecasts %}
-	        <tr>
-		        <td>{{ f.date }}</td>
-		        <td>{{ f.min_temp }}</td>
-		        <td>{{ f.max_temp }}</td>
-		        <td>{{ f.wind }}</td>
-		        <td>{{ f.rain }}</td>
-	        </tr>
-	    {% endfor %}
-	    
-    </table>
     
-    {% if prevPage >= 0 %}
-	    {% if prevPage == 0 %}
-	    	<a href= "{% url 'main:results' %}">Previous</a>
-	    {%else %}
-	    	<a href= "{% url 'main:pages' prevPage %}">Previous</a>
-	    {%endif %}
-    {% endif %}
+    <ul id="main">
+    <li>
+    <div id="results" class="content">
+	    <table>
+	    <tr>
+		    <th>Date</th>
+		    <th>Min Temp [&deg;C]</th>
+		    <th>Max Temp [&deg;C]</th>
+		    <th>Wind [km/h]</th>
+		    <th>Rain [%]</th>
+	    </tr>
+		    {% for f in forecasts %}
+		        <tr>
+			        <td>{{ f.date }}</td>
+			        <td>{{ f.min_temp }}</td>
+			        <td>{{ f.max_temp }}</td>
+			        <td>{{ f.wind }}</td>
+			        <td>{{ f.rain }}</td>
+		        </tr>
+		    {% endfor %}
+		    
+	    </table>
+    </div></li>
+
+    <li>
+    <div id="pagination" class="content">
+	    <ul>
+	    {% if prevPage >= 0 %}
+		    <li>
+		    {% if prevPage == 0 %}
+		    	<a class="nice" href= "{% url 'main:results' %}">Previous</a>
+		    {%else %}
+		    	<a class="nice" href= "{% url 'main:pages' prevPage %}">Previous</a>
+		    {%endif %}
+		    </li>
+	    {% endif %}
 
 
-    {% if nextPage is not -1 %}
+	    {% if nextPage is not -1 %}
 
-    <a href= "{% url 'main:pages' nextPage %}">Next</a>
+	    <li><a class="nice" href= "{% url 'main:pages' nextPage %}">Next</a></li>
 
-    {% endif %}
+	    {% endif %}
+
+	    </ul>
+    </div>
+    </li>
+    </ul>
+    
 {% else %}
     <p>No weather stats are available.</p>
 {% endif %}

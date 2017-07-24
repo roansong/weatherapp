@@ -5,6 +5,8 @@ from rest_framework.test import APIClient
 from rest_framework import status
 from .utils import get_data, clean_json, load_forecasts
 import datetime
+from django.contrib.auth.models import User
+
 
 
 # Create your tests here.
@@ -54,11 +56,15 @@ class ViewTestCase(TestCase):
 	def setUp(self):
 		"""Define the test client and other test variables."""
 		self.client = APIClient()
+		user = User.objects.create(username='testuser')
+		self.client.force_login(user=user)
+
 		self.forecast_data = {'date': datetime.date.fromordinal(30),'min_temp':0,'max_temp':25,'wind':5,'rain':10}
+
 		self.response = self.client.post(
-			reverse('create'),
+			reverse('api:create'),
 			self.forecast_data,
-			format="json")
+			format='json')
 
 	def test_api_can_create_a_forecast(self):
 		"""Test the api can CREATE a forecast."""
@@ -66,20 +72,20 @@ class ViewTestCase(TestCase):
 
 	def test_api_can_get_a_forecast(self):
 		"""Test the api can GET a forecast."""
-		forecast = Forecast.objects.first()
+		forecast = Forecast.objects.get()
 		response = self.client.get(
-			reverse('details',kwargs={'pk': forecast.id})
-			, format="json")
+			reverse('api:details',kwargs={'pk': forecast.id})
+			, format='json')
 
 		self.assertEqual(response.status_code, status.HTTP_200_OK)
 		self.assertContains(response, forecast)
 
 	def test_api_can_update_a_forecast(self):
 		"""Test the api can UPDATE a forecast."""
-		forecast = Forecast.objects.first()
+		forecast = Forecast.objects.order_by("date").first()
 		forecast_update = {'date':forecast.date,'min_temp':0,'max_temp':25,'wind':5,'rain':10}
 		response = self.client.put(
-			reverse('details', kwargs={'pk': forecast.id}),
+			reverse('api:details', kwargs={'pk': forecast.id}),
 			forecast_update, format='json'
 		)
 		self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -89,7 +95,7 @@ class ViewTestCase(TestCase):
 		"""Test the api can DELETE a forecast."""
 		forecast = Forecast.objects.first()
 		response = self.client.delete(
-			reverse('details', kwargs={'pk': forecast.id}),
+			reverse('api:details', kwargs={'pk': forecast.id}),
 			format='json',
 			follow=True)
 
@@ -97,20 +103,20 @@ class ViewTestCase(TestCase):
 
 	def test_can_load_database(self):
 		load_forecasts()
-		forecast = Forecast.objects.order_by('-date')[0]
-		self.assertEqual(forecast.date,timezone.now().date())
+		forecast = Forecast.objects.get(date=timezone.now().date())
+		self.assertEqual(forecast is not None,True)
 
 class JSONTests(TestCase):
-    """
-    Test that the 'dirty' JSON from weather24 has been sufficiently cleaned
-    """
-    def setUp(self):
-        self.response = get_data()
-        self.client = APIClient()
+	"""
+	Test that the 'dirty' JSON from weather24 has been sufficiently cleaned
+	"""
 
-    def test_can_clean_json(self):
-        now = timezone.now().date().__str__()
-        test = datetime.datetime.strptime(self.response['Forecasts'][0]['Date'],'%Y-%m-%d').date().__str__()
-        self.assertEqual(now,test)
+	def test_can_clean_json(self):
+		text = '{"Date":new Date(Date.UTC(2017,6,23,22,0,0,0))};/*'
+
+		self.assertEqual(clean_json(text),'{"Date":"2017-07-24"}')
+
+		# in: "Date":new Date(Date.UTC(2017,6,22,22,0,0,0))
+		# out: "Date":"2017-07-23"
 
     

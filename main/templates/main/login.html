@@ -1,12 +1,13 @@
 {% extends 'main/base.html' %}
+{% block title %}Log in{% endblock %}
+{% block content_header %} Log in {% endblock %}
 
-{% block title %}Login{% endblock %}
-{% block content_header %} Login {% endblock %}
+{% block greeting %}Kindly fill in your details below.{% endblock %}
 {% block content %}
   
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
+<form method="post">
+{% include 'main/form_snippet.html' %}
+<button type="submit">Login</button>
+</form>
+  
 {% endblock %}

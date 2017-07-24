@@ -1,10 +1,10 @@
 {% extends 'main/base.html' %}
 {% block title %}Register{% endblock %}
+{% block content_header %}Register{% endblock %}
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
+
+<form method="post">
+{% include 'main/form_snippet.html' %}
+<button type="submit">Register</button>
+</form>
 {% endblock %}

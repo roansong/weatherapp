@@ -1,0 +1,153 @@
+#home{
+    color:white;
+}
+
+
+#home:link, #home:visited {
+    text-decoration: none;
+}
+
+#home:hover, #home:active {
+    color:#CCCCCC;
+}
+
+body{
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #335577;
+    font-family: sans-serif;
+}
+
+
+
+.header,.footer {
+background-color:  #355779;
+    color: white;
+    padding: 15px;
+
+}
+ul {
+    list-style-type:none;
+}
+
+#main{
+
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    max-width: 600px;
+    padding-left: 0px;
+}
+
+#pagination{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #406090;
+}
+
+#pagination li {
+    display: inline-block;
+}
+
+
+a:link, a:visited {
+    text-decoration: underline;
+    color: white;
+}
+
+.nice:link, .nice:visited {
+    text-decoration: none;
+    background-color: #355779;
+    color: white;
+    padding: 10px 10px;
+    text-align: center; 
+    display: inline-block;
+}
+
+a:hover, a:active{
+    text-decoration: underline;
+}
+.nice:hover, .nice:active {
+    text-decoration: underline;
+    background-color: #203045;
+
+}
+
+
+#results{
+    min-height: 150px;
+    background-color: #406090;
+}
+
+.nice{
+    padding: 5px;
+    margin-left:5px;
+}
+
+
+#results table{
+    background-color: #406090;
+    width:100%;
+    color:white;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-collapse: collapse;
+    max-width: 600px;
+    /*margin-top: 10px;
+    margin-bottom: 10px;*/
+}
+
+
+#results th {
+    background-color: #203045;
+    padding: 5px 8px;
+}
+
+#results td {
+    padding: 5px 8px;
+}
+
+
+
+
+input[type=text], input[type=email], input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+label{
+    color:white;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #708570;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+button {
+    width: 100%;
+    background-color: #708570;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+#formbody {
+    background-color: #f2f2f2;
+    padding: 20px;
+}

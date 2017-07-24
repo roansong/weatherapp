@@ -34,7 +34,7 @@ def clean_json(text):
 	text = text[:-3]
 
 	# in: "Date":new Date(Date.UTC(2017,6,22,22,0,0,0))
-	# out: "Date":"2017-07-23"
+	# out: "Date":"2017-07-22"
 
 	pattern = re.compile(r'new Date\(Date\.UTC\(\d*,\d*,\d*,\d*,\d*,\d*,\d*\)\)')
 	date_in = re.compile(r'\d*,\d*,\d*,\d*,\d*,\d*,\d*')
@@ -46,7 +46,7 @@ def clean_json(text):
 		# note that month and day are off by 1, and need to be changed
 		lst = i.split(',')
 		lst[1] = str(int(lst[1]) + 1)
-		# lst[2] = str(int(lst[2]) + 1)
+		lst[2] = str(int(lst[2]) + 1)
 		i = ','.join(lst)
 		repl = '"'+eval('datetime.datetime('+i+')').date().__str__()+'"'
 		text = re.sub(pattern, repl, text, 1)

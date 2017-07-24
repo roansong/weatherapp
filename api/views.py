@@ -19,8 +19,9 @@ class CreateView(LoginRequiredMixin, generics.ListCreateAPIView):
 
 
 class DetailsView(LoginRequiredMixin, generics.RetrieveUpdateDestroyAPIView):
-	"""Class to handle GET, PUT and DELETE requests"""
-	queryset = Forecast.objects.all()
-	serializer_class = ForecastSerializer
-	login_url = '/login/'
+    """Class to handle GET, PUT and DELETE requests"""
+    queryset = Forecast.objects.all()
+    serializer_class = ForecastSerializer
+    login_url = '/login/'
+    permission_classes = (permissions.IsAuthenticated,)
 
