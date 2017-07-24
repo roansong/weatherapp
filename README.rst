@@ -11,6 +11,7 @@ You should have the following directory structure:
 current_dir/
 	LICENSE
 	README.rst
+	requirements.txt
 	byte_orbit/	
 	    manage.py
 
@@ -49,25 +50,9 @@ current_dir/
 Quick start
 -----------
 
-1. Make sure you have the following packages installed (I recommend running a virtualenv):
+1. Make sure you have the correct packages installed (I recommend running a virtualenv):
 
-	certifi==2017.4.17
-
-	chardet==3.0.4
-
-	Django==1.11.3
-
-	djangorestframework==3.6.3
-
-	idna==2.5
-
-	pytz==2017.2
-
-	requests==2.18.1
-
-	urllib3==1.21.1
-
-
+	pip install -r requirements.txt
 
 2. Ensure that all databases are clean and healthy by running the following commands
 
