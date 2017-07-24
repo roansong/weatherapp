@@ -6,42 +6,43 @@ This app allows the user to create an account, log in, and view 7-day forecasts 
 
 I couldn't figure out how to get the package manager working how I wanted it, so some manual installation is required.
 
+
 You should have the following directory structure:
-
-byte_orbit/
+current_dir/
 	LICENSE
-    manage.py
-    README.rst
+	README.rst
+	byte_orbit/	
+	    manage.py
 
-    byte_orbit/
-        __init__.py
-        settings.py
-        urls.py
-        wsgi.py
+	    byte_orbit/
+	        __init__.py
+	        settings.py
+	        urls.py
+	        wsgi.py
 
-    main/
-        __init__.py
-        admin.py
-        apps.py
-        forms.py
-        models.py
-        serializers.py
-        tests.py
-        urls.py
-        utils.py
-        views.py
+	    main/
+	        __init__.py
+	        admin.py
+	        apps.py
+	        forms.py
+	        models.py
+	        serializers.py
+	        tests.py
+	        urls.py
+	        utils.py
+	        views.py
 
-        migrations/
-            __init__.py
-            0001_initial.py
-        static/
-            main/
-                styles.css
-        templates/
-            polls/
-                detail.html
-                index.html
-                results.html
+	        migrations/
+	            __init__.py
+	            0001_initial.py
+	        static/
+	            main/
+	                styles.css
+	        templates/
+	            polls/
+	                detail.html
+	                index.html
+	                results.html
 
 
 
